@@ -34,7 +34,7 @@ gulp.task('html', () => {
 // Создаем таск для сборки css файлов
 gulp.task('css', () => {
   // Берем только файл styles.scss в папке src, в который импортируеются паршалы
-  return gulp.src('./src/sass/main.scss')
+  return gulp.src('./src/sass/*.scss')
     // Преобразовываем sass в css
     .pipe(sass().on('error', sass.logError))
     // Создаем вендорные префиксы

@@ -1,0 +1,76 @@
+@import 'fonts';
+
+$primary-text-color: #333;
+$borders-color: #cdcdcd;
+$btn-bg: #1565c0;
+$btn-text-color: #fff;
+$btn-disable: #cdcdcd;
+
+$primary-font: 'Roboto', sans-serif;
+
+
+*, html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $primary-font;
+  font-size: 16px;
+  color: $primary-text-color;
+}
+
+.overlay {
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form-wrapper {
+  border: 1px solid $borders-color;
+  border-radius: .5em;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  padding: 2em;
+}
+
+.form {
+  min-width: 320px;
+
+  &__label {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+  }
+
+  &__input {
+    border: 1px solid $borders-color;
+    border-radius: .25em;
+    margin-left: 1em;
+    padding: .5em;
+  }
+}
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 1.5em;
+  width: 100%;
+}
+
+.btn {
+  border: 0;
+  border-radius: .25em;
+  background-color: $btn-bg;
+  color: $btn-text-color;
+  cursor: pointer;
+  font-weight: 500;
+  display: block;
+  padding: .5em 1.5em;
+  text-transform: uppercase;
+}
+
+.btn-next {
+  align-self: flex-end;
+}
