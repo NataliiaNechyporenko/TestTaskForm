@@ -5,6 +5,7 @@ $borders-color: #cdcdcd;
 $btn-bg: #1565c0;
 $btn-text-color: #fff;
 $btn-disable: #cdcdcd;
+$btn-active: #76ff03;
 
 $primary-font: 'Roboto', sans-serif;
 
@@ -49,6 +50,10 @@ $primary-font: 'Roboto', sans-serif;
     border-radius: .25em;
     margin-left: 1em;
     padding: .5em;
+
+    &--ok {
+      border-color: $btn-active;
+    }
   }
 }
 .buttons-wrapper {
@@ -69,6 +74,17 @@ $primary-font: 'Roboto', sans-serif;
   display: block;
   padding: .5em 1.5em;
   text-transform: uppercase;
+
+  &--disable {
+    background-color: $btn-disable;
+    cursor: pointer;
+  }
+
+  &--active {
+    background-color: $btn-active;
+    color: $primary-text-color;
+    cursor: pointer;
+  }
 }
 
 .btn-next {
