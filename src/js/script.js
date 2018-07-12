@@ -8,19 +8,33 @@ $(document).ready(function(){
     surname: '',
     itn: '',
     city: '',
-  }
+  };
 
-  function checkInputNumber(evt) {
-    let inputId = evt.target.id;
-    console.log(inputId);
-    if ($(`#${inputId}`).val() !== '') {
-        $(`#${inputId}`).addClass("form__input--ok");
-        orderData[inputId] = $(`#${inputId}`).val();
+  let formElements = {
+    "sum": (event) => { checkInputsStep1(event)  },
+    "term": (event) => { checkInputsStep1(event) },
+    "itn": (event) => { checkItn(event) },
+  };
+
+  let handleInputsChange = (event) => {
+    let target = event.target.id;
+    for (let key in formElements) {
+         if(target.includes(key)) {
+          formElements[key](event);
+         }
+     };
+  };
+
+  function checkInputsStep1(event) {
+    console.log($(this));
+    if ($(this).val() !== '' ) {
+      $(this).addClass("form__input--ok");
+        // orderData[inputId] = $(this).val();
       } else {
-        $(`#${inputId}`).removeClass("form__input--ok");
+        $(this).removeClass("form__input--ok");
         orderData[inputId] = 0;
       }
-
+      console.log(orderData);
     if (orderData.sum >= 1 
       && orderData.sum <= 10000
       && orderData.term >= 1
@@ -30,8 +44,9 @@ $(document).ready(function(){
       } else {
         step1 = 'no';
       }
+  };
 
-    if (inputId === 'itn') {
+function checkItn(event) {
       let msfrom1900 = Date.now() + Math.abs(Date.parse("January 01, 1900"));
       let daysFrom1970 = msfrom1900/(1000*60*60*24);
       let daysIn21Years = 7670;
@@ -41,10 +56,10 @@ $(document).ready(function(){
       
       console.log(first5CharsItn);
 
-      }
-    }
+      };
+    
   
-
+// Click handler on the next button on Step1. -> Render Step 2 of form 
   function handleClick(evt) {
     evt.preventDefault();
     $(".form-wrapper").empty();
@@ -53,6 +68,7 @@ $(document).ready(function(){
     $(".form-wrapper").append(formStep2);
   }
 
-  $("input").on("change", checkInputNumber);
+//Ivent listeners
+  $("input").on("change", handleInputsChange);
   $(".btn").click(handleClick);
 });
