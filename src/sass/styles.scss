@@ -58,7 +58,7 @@ $primary-font: 'Roboto', sans-serif;
 }
 .buttons-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   margin-top: 1.5em;
   width: 100%;
@@ -85,8 +85,4 @@ $primary-font: 'Roboto', sans-serif;
     color: $primary-text-color;
     cursor: pointer;
   }
-}
-
-.btn-next {
-  align-self: flex-end;
 }

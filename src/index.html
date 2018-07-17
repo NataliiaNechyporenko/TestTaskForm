@@ -20,10 +20,10 @@
   </div>
   <script type="text/template" id="form-step1-template">
   <form class="form" id="formStep1">
-      <label class="form__label">*Сумма: <input class="form__input" placeholder="100" name="sum" id="sum" type="number" required max="10000" min="1" value=<%= sum %> /></label>
-      <label class="form__label">*Срок: <input class="form__input" placeholder="12" name="term" id="term" type="number" required max="12" min="1" value=<% term %> /></label>
+      <label class="form__label">*Сумма: <input class="form__input" name="sum" id="sum" type="number" required max="10000" min="1" value=<%= sum %> /></label>
+      <label class="form__label">*Срок: <input class="form__input" placeholder="12" name="term" id="term" type="number" required max="12" min="1" value=<%= term %> /></label>
       <div class="buttons-wrapper">
-        <button class="btn btn-next btn--disable" id="step1-next-btn">Далее ></button>
+        <button class="btn btn-next btn--disable" id="step1-next-btn" disabled >Далее ></button>
       </div>
     </form> 
   </script>
@@ -35,9 +35,26 @@
       <label class="form__label">*Город: <input class="form__input" placeholder="Киев" name="city" id="city" type="text" required /></label>
       <div class="buttons-wrapper">
         <button class="btn btn-back" id="step2-back-btn">Назад</button>
-        <button class="btn btn-next" id="step2-next-btn">Далее ></button>
+        <button class="btn btn-next" id="step2-next-btn" disabled >Далее ></button>
       </div>
     </form> 
+  </script>
+  <script type="text/template" id="form-step3-template">
+    <div class="step3" id="step3" >
+      <p class="info-text">Сумма: <%= sum %></p>
+      <p class="info-text">Срок: <%= term %></p>
+      <p class="info-text">ИНН: <%= itn %></p>
+      <p class="info-text">Фамилия: <%= surname %></p>
+      <p class="info-text">Имя: <%= name %></p>
+      <p class="info-text">Город: <%= city %></p>
+      <button class="btn btn-back" id="step3-back-btn">Назад</button>
+      <button class="btn btn-next" id="step3-submit">Отправить</button>
+    </div>
+  </script>
+  <script type="text/template" id="form-step4">
+    <div class="btn btn-next" id="step4" >
+      <p class="info-text">Спасибо! Ваш запрос успешно отправлен!</p>
+    </div>
   </script>
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
